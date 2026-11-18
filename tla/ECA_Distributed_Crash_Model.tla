@@ -11,7 +11,7 @@ EXTENDS Naturals, FiniteSets, TLC
 (***************************************************************************)
 
 CONSTANTS Workers, PEPs, Digests, PolicyVersions, Nonces,
-          NoDigest, NoPolicy, NoNonce, MaxRevocationSeq
+          NoDigest, NoPolicy, NoNonce, MaxRevocationSeq, MaxFencingEpoch
 
 ASSUME /\ Workers # {} /\ PEPs # {} /\ Digests # {}
        /\ PolicyVersions # {} /\ Nonces # {}
