@@ -1,0 +1,4 @@
+PASS lexical and action-frame sanity: /mnt/data/ECA_Reference_Implementation_2.0.0/tla/ECA_Lifecycle.tla
+LIMIT: this check does not establish TLA+ grammar validity, semantic correctness, or model-checking results.
+BLOCKED: tla2tools.jar not found at /mnt/data/ECA_Reference_Implementation_2.0.0/tools/tla2tools.jar
+Obtain official stable TLA+ Tools v1.7.4 (the upstream page also lists v1.8.0 as a pre-release) and set TLA2TOOLS_JAR.

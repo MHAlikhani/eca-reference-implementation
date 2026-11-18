@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eca-reference"
+version = "2.0.0"
+description = "Clean-room bounded reference implementation of the ECA Cross-Layer Traceability Contract profile"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Mohammad Hossein Alikhani" }]
+dependencies = ["jsonschema==4.26.0"]
+
+[project.optional-dependencies]
+test = ["pytest==9.2.0", "coverage==7.16.1"]
+
+[project.scripts]
+eca-validate = "eca_reference.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+eca_reference = ["schemas/*.json"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["eca_reference"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+fail_under = 80

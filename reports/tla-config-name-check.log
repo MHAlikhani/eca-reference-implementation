@@ -1,0 +1,2 @@
+PASS: 10 TLC invariants and Spec references resolve by name
+LIMIT: this check does not establish TLA+ grammar validity or model-checking results.

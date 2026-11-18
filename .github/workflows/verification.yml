@@ -1,0 +1,89 @@
+name: ECA verification
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13", "3.14", "3.15"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install current pinned test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[test]"
+      - name: Compile Python sources
+        run: python -m compileall -q src tests examples scripts
+      - name: Run tests and branch coverage
+        run: |
+          mkdir -p reports
+          python -m coverage run --branch -m pytest -q --junitxml=reports/junit-results.xml
+          python -m coverage report --fail-under=80
+      - name: Build and validate wheel
+        run: |
+          python -m pip install "setuptools>=68"
+          bash scripts/check_package.sh
+      - name: Upload Python verification reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eca-python-verification-${{ matrix.python-version }}
+          path: |
+            reports/junit-results.xml
+            reports/coverage-report.txt
+            reports/coverage.json
+            reports/package-check.log
+          if-no-files-found: warn
+
+  tla:
+    name: TLA+ SANY and TLC
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Fetch pinned official TLA+ Tools artifact
+        run: |
+          mkdir -p tools reports
+          curl -fL --retry 3 \
+            -o tools/tla2tools.jar \
+            https://github.com/tlaplus/tlaplus/releases/download/v1.7.4/tla2tools.jar
+          echo "bee4a54f3ee3d4afc347c3240ec2d9e93b075104  tools/tla2tools.jar" | sha1sum -c -
+      - name: Check TLC configuration references
+        run: python scripts/check_tla_config.py tla/ECA_Lifecycle.tla tla/ECA_Lifecycle.cfg
+      - name: Run lexical checks
+        run: python scripts/audit_tla_lexically.py tla/ECA_Lifecycle.tla
+      - name: Independent exhaustive finite-state fallback
+        if: always()
+        run: python scripts/run_explicit_state_check.py 2>&1 | tee reports/explicit-state-check.log
+      - name: Run official SANY and TLC
+        run: bash scripts/run_tla.sh 2>&1 | tee reports/tla-run.log
+      - name: Upload formal-verification output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eca-tla-verification-output
+          path: |
+            reports/tla-run.log
+            reports/explicit-state-check.log
+            tla/ECA_Lifecycle.tla
+            tla/ECA_Lifecycle.cfg
+          if-no-files-found: warn

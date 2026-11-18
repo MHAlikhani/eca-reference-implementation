@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Cite the software package and version used. No DOI is assigned to this private research release."
+title: "ECA Reference Implementation"
+version: 2.0.0
+date-released: 2026-11-18
+authors:
+  - family-names: Alikhani
+    given-names: Mohammad Hossein
+type: software
+abstract: "Clean-room bounded reference implementation of the proposed ECA Cross-Layer Traceability Contract profile."

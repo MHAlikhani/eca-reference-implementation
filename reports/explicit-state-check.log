@@ -1,0 +1,7 @@
+PASS: independent exhaustive finite-state exploration
+Initial valuations: 16,384
+Reachable states checked: 33,668
+Transitions explored: 17,702
+Safety invariants checked: 10 (TypeOK, NoReserveWithoutActionReady, PostClosureRequiresGuardClosure, NoDispatchWithoutCapturedReadiness, NoEffectWithoutDispatchIntent, NoFalseTerminalReceipt, UnknownHasNoVerifiedReceipt, PostClosureSoundness, AccountabilityClosureSoundness, NonceIsNotReused)
+Transition operators cross-checked against TLA+ Next: 13
+LIMIT: this checker is a Python mirror, not SANY/TLC and not a TLA+ grammar or refinement proof.

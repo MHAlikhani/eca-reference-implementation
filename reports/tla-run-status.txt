@@ -1,0 +1,5 @@
+command=bash scripts/run_tla.sh
+exit_code=2
+sany=NOT_RUN
+tlc=NOT_RUN
+reason=official tla2tools.jar was not present at the pinned path; runner exited before SANY invocation

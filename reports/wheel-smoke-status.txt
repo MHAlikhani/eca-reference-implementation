@@ -1,0 +1,3 @@
+PASS: wheel installed into a clean target directory using pip --no-deps.
+PASS: installed-wheel CLI validated the synthetic contract and emitted a PRE trace-closure report.
+Scope: uses the authoring environment dependencies; not a fully isolated offline environment or cross-platform installation test.

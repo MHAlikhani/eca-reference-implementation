@@ -1,0 +1,579 @@
+{
+  "contract_id": "etc:demo:city-traffic:00042",
+  "profile_version": "0.3-proposed",
+  "action": {
+    "action_id": "request:city-traffic:00042",
+    "request": {
+      "qid": "request:city-traffic:00042",
+      "principal_ref": "principal:traffic-operator:17",
+      "task": "bounded signal timing adjustment",
+      "action": "traffic.signal.adjust",
+      "target": "junction:munich-maxvorstadt:04",
+      "arguments": {
+        "phase": "north_south",
+        "duration_delta_ms": 4000
+      },
+      "purpose": "reduce queue spillback without violating pedestrian minimums",
+      "context": {
+        "jurisdiction": "fictional-demo",
+        "operating_mode": "normal"
+      },
+      "created_at": "2026-11-18T10:00:00Z",
+      "expires_at": "2026-11-18T14:00:00Z",
+      "artifact_ref": "artifact:controller:sha256:abc123",
+      "policy_ref": "policy:traffic:2026-11-v3",
+      "mission_ref": "mission:traffic-flow:2026-v2",
+      "delegation_ref": "delegation:traffic-operator:17",
+      "nonce": "nonce-0000000000000042"
+    },
+    "request_digest": "sha256:fbc001698d5a91a796eb816f2d7f9e878627d10f8146a95338c24d35f498136b",
+    "request_binding_profile": "eca-canonical-json-v1",
+    "action_class": "traffic.signal.adjust",
+    "target": "junction:munich-maxvorstadt:04",
+    "validity": {
+      "not_before": "2026-11-18T10:00:00Z",
+      "expires_at": "2026-11-18T14:00:00Z"
+    }
+  },
+  "risk_profile": {
+    "id": "risk:medium-traffic-adjustment",
+    "version": "1.0",
+    "level": "medium",
+    "action_class": "traffic.signal.adjust",
+    "jurisdictional_context": "fictional demonstration only",
+    "pre_action_relation_types": [
+      "governed_by_mission",
+      "delegated_through",
+      "evaluated_under_policy",
+      "supported_by_evidence",
+      "implemented_by_artifact",
+      "built_as_release",
+      "authorized_by_native_decision",
+      "enforced_at_boundary"
+    ],
+    "post_action_relation_types": [
+      "observed_as_target_effect"
+    ],
+    "accountability_relation_types": [
+      "challenged_through_review",
+      "remediated_by_action",
+      "supersedes_version"
+    ],
+    "critical_relation_types": [
+      "delegated_through",
+      "supported_by_evidence",
+      "authorized_by_native_decision",
+      "enforced_at_boundary"
+    ],
+    "freshness_seconds_by_relation_type": {
+      "supported_by_evidence": 3600,
+      "authorized_by_native_decision": 900,
+      "delegated_through": 3600
+    },
+    "native_authorization_max_age_seconds": 60,
+    "enforcement_assessment_max_age_seconds": 60,
+    "independence_policy_ref": "independence:demo-profile",
+    "obligation_policy_ref": "obligations:demo-profile"
+  },
+  "nodes": [
+    {
+      "id": "node:action",
+      "kind": "action",
+      "native_ref": "native:action",
+      "version": "act-v1",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:mission",
+      "kind": "mission",
+      "native_ref": "native:mission",
+      "version": "m-v2",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:delegation",
+      "kind": "delegation",
+      "native_ref": "native:delegation",
+      "version": "d-v3",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:policy",
+      "kind": "policy",
+      "native_ref": "native:policy",
+      "version": "p-v3",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:evidence",
+      "kind": "evidence",
+      "native_ref": "native:evidence",
+      "version": "e-v5",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:artifact",
+      "kind": "artifact",
+      "native_ref": "native:artifact",
+      "version": "a-v7",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:release",
+      "kind": "release",
+      "native_ref": "native:release",
+      "version": "r-v7",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:native-auth",
+      "kind": "native_authorization",
+      "native_ref": "native-auth:permit:00042",
+      "version": "na-42",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:pep",
+      "kind": "enforcement_point",
+      "native_ref": "pep:controller-boundary:04",
+      "version": "pep-v2",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:effect",
+      "kind": "target_effect",
+      "native_ref": "native:effect",
+      "version": "effect-42",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:review",
+      "kind": "review_process",
+      "native_ref": "native:review",
+      "version": "review-route-v1",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:remedy",
+      "kind": "remediation_action",
+      "native_ref": "native:remedy",
+      "version": "remedy-plan-v1",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:version-new",
+      "kind": "version",
+      "native_ref": "native:version-new",
+      "version": "v2",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    },
+    {
+      "id": "node:version-old",
+      "kind": "version",
+      "native_ref": "native:version-old",
+      "version": "v1",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "attributes": {}
+    }
+  ],
+  "relations": [
+    {
+      "id": "relation:01",
+      "type": "governed_by_mission",
+      "source": "node:action",
+      "target": "node:mission",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:01",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    },
+    {
+      "id": "relation:02",
+      "type": "delegated_through",
+      "source": "node:action",
+      "target": "node:delegation",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:02",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    },
+    {
+      "id": "relation:03",
+      "type": "evaluated_under_policy",
+      "source": "node:action",
+      "target": "node:policy",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:03",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    },
+    {
+      "id": "relation:04",
+      "type": "supported_by_evidence",
+      "source": "node:action",
+      "target": "node:evidence",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:04",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    },
+    {
+      "id": "relation:05",
+      "type": "implemented_by_artifact",
+      "source": "node:action",
+      "target": "node:artifact",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:05",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    },
+    {
+      "id": "relation:06",
+      "type": "built_as_release",
+      "source": "node:artifact",
+      "target": "node:release",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:06",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    },
+    {
+      "id": "relation:07",
+      "type": "authorized_by_native_decision",
+      "source": "node:action",
+      "target": "node:native-auth",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:07",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    },
+    {
+      "id": "relation:08",
+      "type": "enforced_at_boundary",
+      "source": "node:action",
+      "target": "node:pep",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:08",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    },
+    {
+      "id": "relation:09",
+      "type": "observed_as_target_effect",
+      "source": "node:action",
+      "target": "node:effect",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:09",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    },
+    {
+      "id": "relation:10",
+      "type": "challenged_through_review",
+      "source": "node:action",
+      "target": "node:review",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:10",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    },
+    {
+      "id": "relation:11",
+      "type": "remediated_by_action",
+      "source": "node:action",
+      "target": "node:remedy",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:11",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    },
+    {
+      "id": "relation:12",
+      "type": "supersedes_version",
+      "source": "node:version-new",
+      "target": "node:version-old",
+      "schema_version": "etc-relations-0.3-proposed",
+      "asserting_issuer": "issuer:demo-registry",
+      "asserted_at": "2026-11-18T11:50:00Z",
+      "observed_at": "2026-11-18T11:50:00Z",
+      "validity": {
+        "checked_at": "2026-11-18T11:55:00Z",
+        "valid_from": "2026-11-18T11:00:00Z",
+        "valid_until": "2026-11-18T14:00:00Z"
+      },
+      "native_evidence_ref": "native-evidence:12",
+      "verification_method": "demo-independent-check-v1",
+      "verifier_ref": "verifier:demo-auditor",
+      "trust_profile_ref": "trust:demo-lab-v1",
+      "limitations": [
+        "synthetic fixture; no external issuer was contacted"
+      ],
+      "status": "VERIFIED",
+      "owner_ref": "owner:demo-operator",
+      "privacy_class": "operational-metadata",
+      "retention_rule_ref": "retention:90d",
+      "change_dependencies": []
+    }
+  ],
+  "obligations": [
+    {
+      "id": "obligation:pre:1",
+      "phase": "PRE",
+      "owner_ref": "role:traffic-safety",
+      "status": "DISCHARGED",
+      "due_at": "2026-11-18T12:00:00Z",
+      "discharge_evidence_ref": "evidence:pre-check:1"
+    },
+    {
+      "id": "obligation:post:1",
+      "phase": "POST",
+      "owner_ref": "role:operations",
+      "status": "REGISTERED",
+      "due_at": "2026-11-18T15:00:00Z",
+      "escalation_rule_ref": "escalation:post:1"
+    },
+    {
+      "id": "obligation:accountability:1",
+      "phase": "ACCOUNTABILITY",
+      "owner_ref": "role:review",
+      "status": "REGISTERED",
+      "due_at": "2026-11-19T12:00:00Z"
+    }
+  ],
+  "closure_policy": {
+    "critical_relations_are_hard_gates": true,
+    "coverage_is_diagnostic_only": true,
+    "allow_not_applicable": true,
+    "post_action_requirements_ref": "requirements:post:demo",
+    "accountability_requirements_ref": "requirements:accountability:demo",
+    "challenge_route_ref": "https://example.invalid/fictional-review-route"
+  }
+}

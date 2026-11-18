@@ -1,0 +1,5 @@
+# Current toolchain target reviewed against upstream release records on 2026-11-18.
+# This file was NOT installed in the offline authoring environment; validation is delegated to CI.
+jsonschema==4.26.0
+pytest==9.2.0
+coverage==7.16.1

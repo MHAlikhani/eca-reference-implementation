@@ -1,0 +1,128 @@
+{
+  "contract_validation": {
+    "action_validity_state": "CURRENT",
+    "checked_at": "2026-11-18T12:00:00Z",
+    "node_count": 14,
+    "profile_version": "0.3-proposed",
+    "relation_count": 12,
+    "request_digest": "sha256:fbc001698d5a91a796eb816f2d7f9e878627d10f8146a95338c24d35f498136b",
+    "request_state": "CURRENT",
+    "valid": true
+  },
+  "trace_closure": {
+    "approved_not_applicable_count": 0,
+    "denominator": 8,
+    "phase": "PRE",
+    "relations": {
+      "authorized_by_native_decision": {
+        "instances": [
+          {
+            "excluded": false,
+            "reason": "VERIFIED under the declared verifier/trust profile",
+            "satisfied": true,
+            "status": "VERIFIED"
+          }
+        ],
+        "reason": "all active assertions are compatible and at least one satisfies the obligation",
+        "satisfied": true
+      },
+      "built_as_release": {
+        "instances": [
+          {
+            "excluded": false,
+            "reason": "VERIFIED under the declared verifier/trust profile",
+            "satisfied": true,
+            "status": "VERIFIED"
+          }
+        ],
+        "reason": "all active assertions are compatible and at least one satisfies the obligation",
+        "satisfied": true
+      },
+      "delegated_through": {
+        "instances": [
+          {
+            "excluded": false,
+            "reason": "VERIFIED under the declared verifier/trust profile",
+            "satisfied": true,
+            "status": "VERIFIED"
+          }
+        ],
+        "reason": "all active assertions are compatible and at least one satisfies the obligation",
+        "satisfied": true
+      },
+      "enforced_at_boundary": {
+        "instances": [
+          {
+            "excluded": false,
+            "reason": "VERIFIED under the declared verifier/trust profile",
+            "satisfied": true,
+            "status": "VERIFIED"
+          }
+        ],
+        "reason": "all active assertions are compatible and at least one satisfies the obligation",
+        "satisfied": true
+      },
+      "evaluated_under_policy": {
+        "instances": [
+          {
+            "excluded": false,
+            "reason": "VERIFIED under the declared verifier/trust profile",
+            "satisfied": true,
+            "status": "VERIFIED"
+          }
+        ],
+        "reason": "all active assertions are compatible and at least one satisfies the obligation",
+        "satisfied": true
+      },
+      "governed_by_mission": {
+        "instances": [
+          {
+            "excluded": false,
+            "reason": "VERIFIED under the declared verifier/trust profile",
+            "satisfied": true,
+            "status": "VERIFIED"
+          }
+        ],
+        "reason": "all active assertions are compatible and at least one satisfies the obligation",
+        "satisfied": true
+      },
+      "implemented_by_artifact": {
+        "instances": [
+          {
+            "excluded": false,
+            "reason": "VERIFIED under the declared verifier/trust profile",
+            "satisfied": true,
+            "status": "VERIFIED"
+          }
+        ],
+        "reason": "all active assertions are compatible and at least one satisfies the obligation",
+        "satisfied": true
+      },
+      "supported_by_evidence": {
+        "instances": [
+          {
+            "excluded": false,
+            "reason": "VERIFIED under the declared verifier/trust profile",
+            "satisfied": true,
+            "status": "VERIFIED"
+          }
+        ],
+        "reason": "all active assertions are compatible and at least one satisfies the obligation",
+        "satisfied": true
+      }
+    },
+    "required_relation_types": [
+      "governed_by_mission",
+      "delegated_through",
+      "evaluated_under_policy",
+      "supported_by_evidence",
+      "implemented_by_artifact",
+      "built_as_release",
+      "authorized_by_native_decision",
+      "enforced_at_boundary"
+    ],
+    "rrc": 1.0,
+    "trace_closed": true,
+    "verified_required_count": 8
+  }
+}

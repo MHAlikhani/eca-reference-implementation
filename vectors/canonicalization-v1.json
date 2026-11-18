@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "vector_set": "eca-canonical-json-v1",
+  "status": "author-proposed-interoperability-vectors",
+  "note": "These vectors define this repository-specific canonicalization profile; they do not claim RFC 8785/JCS compatibility.",
+  "positive_vectors": [
+    {
+      "id": "empty-object",
+      "input_json": "{}",
+      "expected_canonical_utf8": "{\"canonicalization_profile\":\"eca-canonical-json-v1\"}",
+      "expected_request_digest": "sha256:78fc96dd002da6ef2e46fd03829f6a61948d0557a57564de2bfe4f7077ae9959"
+    },
+    {
+      "id": "nested-object-key-order",
+      "input_json": "{\"b\":{\"y\":3,\"x\":2},\"a\":1}",
+      "expected_canonical_utf8": "{\"a\":1,\"b\":{\"x\":2,\"y\":3},\"canonicalization_profile\":\"eca-canonical-json-v1\"}",
+      "expected_request_digest": "sha256:c9b33274ecdbf03617c1a373d8b22505a64c1cd5bc47f6981be42b3ca91821d3"
+    },
+    {
+      "id": "unicode-nfc",
+      "input_json": "{\"label\":\"cafe\\u0301\"}",
+      "expected_canonical_utf8": "{\"canonicalization_profile\":\"eca-canonical-json-v1\",\"label\":\"café\"}",
+      "expected_request_digest": "sha256:f7f8bdc9a97bf453a55cbf64d5f88cb452a3d661ae76f5bc5b5d4ded4a79dab9"
+    },
+    {
+      "id": "array-order-preserved",
+      "input_json": "{\"steps\":[\"first\",\"second\",\"third\"]}",
+      "expected_canonical_utf8": "{\"canonicalization_profile\":\"eca-canonical-json-v1\",\"steps\":[\"first\",\"second\",\"third\"]}",
+      "expected_request_digest": "sha256:608ce2551136390ef4e20ce7d7ad6275aa584539a6bdeabf9deb21816dc639ab"
+    },
+    {
+      "id": "signed-64-bit-boundaries",
+      "input_json": "{\"min\":-9223372036854775808,\"max\":9223372036854775807}",
+      "expected_canonical_utf8": "{\"canonicalization_profile\":\"eca-canonical-json-v1\",\"max\":9223372036854775807,\"min\":-9223372036854775808}",
+      "expected_request_digest": "sha256:89eed09135638e77e6d21cb4e7b4701f602e1c74ef2dc9c70cf6d3125ecb2fbd"
+    }
+  ],
+  "negative_vectors": [
+    {
+      "id": "floating-point-rejected",
+      "input_json": "{\"value\":1.25}",
+      "expected_error_contains": "floating-point"
+    },
+    {
+      "id": "duplicate-key-rejected",
+      "input_json": "{\"x\":1,\"x\":2}",
+      "expected_error_contains": "duplicate"
+    },
+    {
+      "id": "unicode-normalization-key-collision",
+      "input_json": "{\"café\":1,\"café\":2}",
+      "expected_error_contains": "duplicate"
+    },
+    {
+      "id": "non-finite-json-rejected",
+      "input_json": "{\"value\":NaN}",
+      "expected_error_contains": "non-finite"
+    }
+  ]
+}

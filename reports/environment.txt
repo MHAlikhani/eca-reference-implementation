@@ -1,0 +1,10 @@
+Assessment date: 2026-11-18
+Python: 3.13.5
+pip: 25.1.1
+jsonschema: 4.26.0
+pytest (executed local suite): 9.0.2
+coverage.py (executed local suite): 7.13.3
+SQLite: 3.46.1
+Java: OpenJDK 21.0.12.1
+
+The toolchain currency target is documented separately in TOOLCHAIN_CURRENCY.md. The CI matrix and newer test-tool pins have not yet been run in this local environment.

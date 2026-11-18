@@ -1,0 +1,2 @@
+2026-11-18: Attempted `python -m pip index versions pytest`, `coverage`, and `jsonschema` during the final freshness review.
+Result: pip could not resolve the configured package index host (`Temporary failure in name resolution`) and returned no index result. Current upstream version data was therefore checked through the official Python/PyPI/project documentation pages, but the updated pins could not be downloaded or executed locally.
