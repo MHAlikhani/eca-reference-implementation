@@ -8,3 +8,6 @@ htmlcov/
 *.db
 .DS_Store
 reports/local-*
+build/
+dist/
+*.egg-info/

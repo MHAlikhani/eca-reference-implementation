@@ -1,0 +1,2 @@
+Historical local-container TLA+ attempt exited with code 2 because tla2tools.jar was unavailable. It stopped before SANY. This local limitation is superseded by the successful hosted run #2:
+https://github.com/MHAlikhani/eca-reference-implementation/actions/runs/44391171960

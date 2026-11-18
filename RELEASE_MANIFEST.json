@@ -2,13 +2,13 @@
   "files": [
     {
       "path": ".github/workflows/verification.yml",
-      "sha256": "1a8bae213deaab36c6c23265002c938d05142970e2de3eda2e36bdf48c4d7777",
-      "size_bytes": 3049
+      "sha256": "ed66807dbea72463f1e065d2de7db6ec78d48bcf284396fd30af9b197a250b5b",
+      "size_bytes": 3447
     },
     {
       "path": ".gitignore",
-      "sha256": "1846f93bb8921a5d40632d4b1708f45a5ecc8aac4bef6e790b3b9dbc849502de",
-      "size_bytes": 105
+      "sha256": "0a0f08e68b4b74f3b4292231b3271419cce8e0bbae8f50269e9e4e79609c0ed7",
+      "size_bytes": 130
     },
     {
       "path": "CHANGELOG.md",
@@ -27,13 +27,13 @@
     },
     {
       "path": "LICENSE_STATUS.md",
-      "sha256": "3809fa9416f73ce486c04414101e7a0d75171faff8e6ac594c6d6887d6308ba2",
-      "size_bytes": 467
+      "sha256": "161a81a881f5b1d4744be1f49fa75c4f0c4a17ae48587ef48834ac5355000bc0",
+      "size_bytes": 663
     },
     {
       "path": "README.md",
-      "sha256": "e6500b8610893d7127ebd19141193f2880df9ddc0588fff34d1e0c9cc040ab25",
-      "size_bytes": 8938
+      "sha256": "b9b2dd62070511b389140417b0214dc19cb107b460268d400de97e02c823f273",
+      "size_bytes": 4551
     },
     {
       "path": "SECURITY.md",
@@ -42,13 +42,8 @@
     },
     {
       "path": "VERSION_LINEAGE.md",
-      "sha256": "be514b956be619d584d80e26c9631d1a1a299762cc0d8bdc4d3a49b54db5dc3a",
-      "size_bytes": 888
-    },
-    {
-      "path": "dist/eca_reference-2.0.0-py3-none-any.whl",
-      "sha256": "9b9e3e7625b9f5fe2ebd7438313699e9f357b16202e7cf9d3883ff9f4dd21bc7",
-      "size_bytes": 32399
+      "sha256": "367305be9c9559eba2762aa9505183e6ae8d7f63c691f58f6d2ae7856d8ecb7e",
+      "size_bytes": 1358
     },
     {
       "path": "docs/ARCHITECTURE.md",
@@ -77,8 +72,8 @@
     },
     {
       "path": "docs/MANUSCRIPT_ALIGNMENT.md",
-      "sha256": "04738ff997acb6a0abcebf154479b045912140d1c218f0c07e1686f262da4569",
-      "size_bytes": 2926
+      "sha256": "1adb7e8fc3368246c7a9191197cce9ba78c46406cd5fd8c395db88760113aaa6",
+      "size_bytes": 2048
     },
     {
       "path": "docs/THREAT_MODEL_AND_LIMITATIONS.md",
@@ -87,8 +82,8 @@
     },
     {
       "path": "docs/TLA_MODEL_GUIDE.md",
-      "sha256": "8646caa04257e716ac5c503a72cc8eed856f5e1e62b354773b7ca0d76371e9bf",
-      "size_bytes": 6745
+      "sha256": "d4f6735cb0687c3f968f97400d92fed75ffca54a823f87dd2f14ad3b4a664c79",
+      "size_bytes": 2760
     },
     {
       "path": "examples/build_example.py",
@@ -107,28 +102,38 @@
     },
     {
       "path": "reports/ALTERNATIVE_MODEL_CHECK_REPORT.md",
-      "sha256": "34be36dd28efc44f02d3b66bcb4a999e83cd700968d50c1ef401b277e6cc1dc3",
-      "size_bytes": 3480
+      "sha256": "8d19d5082642a00ab4628c5e6d2c50acc595b17c40f0f2ee3f0fded3d05c0efe",
+      "size_bytes": 819
     },
     {
       "path": "reports/CI_EXECUTION_REPORT.md",
-      "sha256": "f1caf4a1b431e7f21c10f8d9efa166e7657134833c741f98e3ccaea2619c4db3",
-      "size_bytes": 2213
+      "sha256": "2367e7fdc9caec7e1ae2eefae193913a7871af9c363e9c764df94144cec0b0e5",
+      "size_bytes": 1880
+    },
+    {
+      "path": "reports/GITHUB_ACTIONS_TLA_SUMMARY.txt",
+      "sha256": "45aee18c6a9fb53ef7d941d5f23c19918d45d59cde405f7859f97f5f88de429d",
+      "size_bytes": 676
+    },
+    {
+      "path": "reports/GITHUB_ACTIONS_VERIFICATION.md",
+      "sha256": "02dabc32394ec1943d7798db7c662cf51d6fd55a3f368527b35b8b6d311f8068",
+      "size_bytes": 1543
     },
     {
       "path": "reports/REPRODUCIBILITY_STATUS.md",
-      "sha256": "2c1bae0ae942e63464f1bc837b6c7550024f2295c23838fce268289ed6b74971",
-      "size_bytes": 10179
+      "sha256": "6cf6b591aadf0b25370f857717ee79e154bd46a3226ab23fec81e5cc353e6419",
+      "size_bytes": 2536
     },
     {
       "path": "reports/TLA_EXECUTION_STATUS.md",
-      "sha256": "59041aee54d3f4355dcfcedbce9be54d38d3463cf80d2a2486b34ccb884a7dc6",
-      "size_bytes": 4641
+      "sha256": "4492b25607bae7986f14eb225a4d2f86b7c3120a6582d9ce7a18e8fc7a0942f1",
+      "size_bytes": 2490
     },
     {
       "path": "reports/TOOLCHAIN_CURRENCY.md",
-      "sha256": "ecfe2f9220b7d6aa50ef4af8513de7ebde0c5f27443f26141b9ca93bbed626b6",
-      "size_bytes": 2639
+      "sha256": "bb0bcf18de6f42d793488a54ee0c5a998e96a65dd54b7900e0fbb5e6eec9369b",
+      "size_bytes": 1037
     },
     {
       "path": "reports/cli-smoke-output.json",
@@ -211,27 +216,22 @@
       "size_bytes": 169
     },
     {
-      "path": "reports/tla-official-run-exit-code.txt",
-      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
-      "size_bytes": 2
-    },
-    {
-      "path": "reports/tla-official-run.log",
+      "path": "reports/tla-local-run-blocked.log",
       "sha256": "4ed62d9b3225396a00a215291eef17a7b79eae9d100405f30bc634dd6cd7d2c3",
       "size_bytes": 458
     },
     {
-      "path": "reports/tla-run-exit-code.txt",
+      "path": "reports/tla-local-run-exit-code.txt",
       "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
       "size_bytes": 2
     },
     {
-      "path": "reports/tla-run-status.txt",
-      "sha256": "026a7ac4e37e710b94ff1c2d09a4083f8f10ad519107c86c2c2b803f66e8e4a8",
-      "size_bytes": 172
+      "path": "reports/tla-local-run-status.txt",
+      "sha256": "05411a22410e1f8417e94980e2bf5886277988d5885280be4f00ee5d07135c1f",
+      "size_bytes": 275
     },
     {
-      "path": "reports/tla-run.log",
+      "path": "reports/tla-local-run.log",
       "sha256": "8855499be524bb645167b635714609205faf2e1c1e2479bf51e3882a8ffd7f34",
       "size_bytes": 434
     },
@@ -262,8 +262,8 @@
     },
     {
       "path": "scripts/build_release.py",
-      "sha256": "46c9223882dcbcb9d67052a2bfceacb166de2a81b1fa0abf3da8067ebb483717",
-      "size_bytes": 5031
+      "sha256": "0c256d8b3dd9979bc46c415dcba3b446330d72a579f3d3d3fee1324595ad70a6",
+      "size_bytes": 4522
     },
     {
       "path": "scripts/check_package.sh",
@@ -431,10 +431,10 @@
       "size_bytes": 2596
     }
   ],
-  "manifest_note": "This manifest excludes itself and SHA256SUMS.txt from the files array to avoid recursive hashing. SHA256SUMS.txt includes the manifest hash.",
+  "manifest_note": "This manifest excludes itself and SHA256SUMS.txt from its file list. Generated build/ and dist/ outputs are excluded.",
   "release": {
-    "assessed_at_utc": "2026-11-18T14:54:23+00:00",
-    "designation": "verification-gated",
+    "assessed_at_utc": "2026-11-18T21:51:29.620Z",
+    "designation": "official CI and bounded TLA+ checks passed; not production-certified",
     "etc_profile": "0.3-proposed",
     "name": "ECA Reference Implementation",
     "tla_model_lineage": "revision 1",
@@ -450,26 +450,55 @@
       "transition_operators_cross_checked": 13,
       "transitions": 17702
     },
-    "coverage": {
-      "branch_percent": 73.31,
-      "combined_percent": 82.1,
-      "coverage_threshold_combined_percent": 80,
-      "line_percent": 86.26
-    },
     "external_security_audit": "not_performed",
     "field_validation": "not_performed",
-    "github_hosted_actions": "not_run_no_connected_repository_session",
-    "local_ci_equivalent": "passed_python_3.13.5",
-    "python_matrix_3_11_to_3_15": "not_run_locally_only_3_13_5_available",
-    "python_tests": {
-      "count": 102,
-      "status": "passed"
+    "github_actions": {
+      "combined_coverage_percent": 82,
+      "commit": "b9c760d280993c760091af5f1ed705038e8cf80d",
+      "coverage_threshold_percent": 80,
+      "dependency_versions": {
+        "coverage": "7.16.1",
+        "jsonschema": "4.26.0",
+        "pytest": "9.2.0"
+      },
+      "python_versions": [
+        "3.11",
+        "3.12",
+        "3.13",
+        "3.14",
+        "3.15"
+      ],
+      "run_id": 44391171960,
+      "status": "passed",
+      "tests_per_version": 102,
+      "total_test_executions": 510,
+      "workflow": "ECA verification"
     },
-    "sany": "not_run_blocked_missing_official_jar",
-    "schema_and_synthetic_example": "passed",
-    "tla_config_name_check": "passed_limited_static_check",
-    "tla_lexical_audit": "passed_limited_static_check",
-    "tlc": "not_run_blocked_missing_official_jar",
-    "wheel_build_and_target_install_smoke": "passed"
+    "implementation_refinement_proof": "not_provided",
+    "production_certification": "not_claimed",
+    "sany": {
+      "job_id": 135108908582,
+      "module": "ECA_Lifecycle",
+      "status": "passed",
+      "version": "2.1"
+    },
+    "tla_tools": {
+      "artifact_id": 14469505467,
+      "jar_sha1": "bee4a54f3ee3d4afc347c3240ec2d9e93b075104",
+      "version": "1.7.4"
+    },
+    "tlc": {
+      "configured_safety_invariants": 10,
+      "deadlock_check_enabled": false,
+      "distinct_states": 33668,
+      "initial_states": 16384,
+      "job_id": 135108908582,
+      "result": "No error has been found",
+      "state_graph_depth": 9,
+      "states_generated": 34086,
+      "states_remaining_in_queue": 0,
+      "status": "passed",
+      "version": "2.19"
+    }
   }
 }

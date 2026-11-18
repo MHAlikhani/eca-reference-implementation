@@ -1,5 +1,7 @@
 # License status
 
-**No license is granted by this package. All rights are reserved by the author unless and until a separate license is selected and issued.**
+**No open-source license is granted by this package. All rights are reserved by the author unless and until a separate license is selected and issued.**
 
-This is a private research/review package. Do not redistribute, publish, incorporate into a product, or assume permission to reuse without the author's express licensing decision. This notice is not legal advice. The author should obtain qualified advice before selecting a license for public distribution.
+The GitHub repository was confirmed **Public** on 18 November 2026. Public visibility makes the source viewable on GitHub; it does not, by itself, grant permission to reuse, modify, redistribute, or incorporate the software into another product.
+
+If public visibility was not intentional, change the repository to Private in GitHub Settings. If public research visibility is intentional, select and add an explicit license before inviting third-party reuse. This notice is not legal advice.

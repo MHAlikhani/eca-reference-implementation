@@ -1,0 +1,19 @@
+GitHub Actions: ECA verification, run #2
+Commit: b9c760d280993c760091af5f1ed705038e8cf80d
+Run: https://github.com/MHAlikhani/eca-reference-implementation/actions/runs/44391171960
+TLA+ job: 135108908582
+Artifact: 14469505467
+Artifact SHA-256: aceacbca35a41ecdc4b0181a0bb87a4281bb625473832e739bb6a623212c292c
+
+TLA+ Tools v1.7.4 SHA-1: bee4a54f3ee3d4afc347c3240ec2d9e93b075104 — PASS
+Java: Eclipse Adoptium 21.0.13
+SANY 2.1: parsed ECA_Lifecycle
+TLC 2.19: Model checking completed. No error has been found.
+
+Initial states: 16384
+Generated states: 34086
+Distinct states: 33668
+Queue remaining: 0
+Graph depth: 9
+Safety invariants configured: 10
+CHECK_DEADLOCK: FALSE (disabled)
