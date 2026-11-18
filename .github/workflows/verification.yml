@@ -82,6 +82,8 @@ jobs:
         run: python scripts/run_explicit_state_check.py 2>&1 | tee reports/explicit-state-check.log
       - name: Run official SANY and TLC
         run: bash scripts/run_tla.sh 2>&1 | tee reports/tla-run.log
+      - name: Run distributed crash/restart model v5 SANY and TLC
+        run: bash scripts/run_tla_distributed.sh 2>&1 | tee reports/tla-distributed-v5.log
       - name: Upload formal-verification output
         if: always()
         uses: actions/upload-artifact@v4
@@ -89,6 +91,7 @@ jobs:
           name: eca-tla-verification-output
           path: |
             reports/tla-run.log
+            reports/tla-distributed-v5.log
             reports/explicit-state-check.log
             reports/TLA_EXECUTION_STATUS.md
             reports/GITHUB_ACTIONS_VERIFICATION.md
@@ -96,4 +99,6 @@ jobs:
             SHA256SUMS.txt
             tla/ECA_Lifecycle.tla
             tla/ECA_Lifecycle.cfg
+            tla/ECA_Distributed_Crash_Model.tla
+            tla/ECA_Distributed_Crash_Model.cfg
           if-no-files-found: warn
