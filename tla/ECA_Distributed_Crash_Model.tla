@@ -17,6 +17,7 @@ ASSUME /\ Workers # {} /\ PEPs # {} /\ Digests # {}
        /\ PolicyVersions # {} /\ Nonces # {}
        /\ NoDigest \notin Digests /\ NoPolicy \notin PolicyVersions
        /\ NoNonce \notin Nonces /\ MaxRevocationSeq \in Nat
+       /\ MaxFencingEpoch \in Nat /\ MaxFencingEpoch >= 1
 
 AuthStates == {"NONE", "PERMITTED", "REVOKED", "DENIED"}
 Phases == {"IDLE", "RESERVED", "DISPATCH_INTENT", "TARGET_APPLIED", "RECEIPT_STORED", "UNKNOWN", "ABORTED"}
@@ -181,6 +182,7 @@ Crash(w) ==
 
 Restart(w) ==
   /\ w \in Workers /\ ~workerOnline[w]
+  /\ fencingEpoch < MaxFencingEpoch
   /\ fencingEpoch' = fencingEpoch + 1
   /\ workerOnline' = [workerOnline EXCEPT ![w] = TRUE]
   /\ workerEpoch' = [workerEpoch EXCEPT ![w] = fencingEpoch + 1]
@@ -234,19 +236,21 @@ TypeOK ==
   /\ durableNonceSet \subseteq Nonces
   /\ durableDigest \in Digests \cup {NoDigest}
   /\ durablePolicy \in PolicyVersions \cup {NoPolicy}
-  /\ durableFence \in Nat /\ fencingEpoch \in Nat
+  /\ durableFence \in 0..MaxFencingEpoch
+  /\ fencingEpoch \in 0..MaxFencingEpoch
   /\ workerOnline \in [Workers -> BOOLEAN]
-  /\ workerEpoch \in [Workers -> Nat]
-  /\ pepSeenSeq \in [PEPs -> Nat]
-  /\ globalRevocationSeq \in Nat
-  /\ pendingRevocationMsgs \subseteq [pep : PEPs, seq : Nat]
+  /\ workerEpoch \in [Workers -> 0..MaxFencingEpoch]
+  /\ pepSeenSeq \in [PEPs -> 0..MaxRevocationSeq]
+  /\ globalRevocationSeq \in 0..MaxRevocationSeq
+  /\ pendingRevocationMsgs \subseteq [pep : PEPs, seq : 1..MaxRevocationSeq]
   /\ dispatchWorker \in Workers /\ dispatchPEP \in PEPs
-  /\ dispatchSeq \in Nat /\ dispatchFence \in Nat
+  /\ dispatchSeq \in 0..MaxRevocationSeq
+  /\ dispatchFence \in 0..MaxFencingEpoch
   /\ targetAppliedKeys \subseteq {IdempotencyKey}
   /\ targetReceiptPresent \in BOOLEAN
   /\ targetReceiptDigest \in Digests \cup {NoDigest}
   /\ targetReceiptNonce \in Nonces \cup {NoNonce}
-  /\ recoveryCount \in Nat
+  /\ recoveryCount \in 0..1
 
 NoEffectWithoutDurableIntent ==
   targetAppliedKeys # {} => phase \in {"TARGET_APPLIED", "RECEIPT_STORED", "UNKNOWN"}
