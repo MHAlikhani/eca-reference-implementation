@@ -1,14 +1,23 @@
 PASS: Draft 2020-12 schema self-check
 PASS: synthetic example structural/semantic validation
 example request digest: sha256:fbc001698d5a91a796eb816f2d7f9e878627d10f8146a95338c24d35f498136b
-WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
-Processing /mnt/data/eca-ci-work/ECA_Reference_Implementation_2.0.0
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+Processing /mnt/data/ECA_Reference_Implementation_2.0.0_fixed/ECA_Reference_Implementation_2.0.0
   Preparing metadata (pyproject.toml): started
   Preparing metadata (pyproject.toml): finished with status 'done'
 Building wheels for collected packages: eca-reference
   Building wheel for eca-reference (pyproject.toml): started
   Building wheel for eca-reference (pyproject.toml): finished with status 'done'
-  Created wheel for eca-reference: filename=eca_reference-2.0.0-py3-none-any.whl size=32399 sha256=9b9e3e7625b9f5fe2ebd7438313699e9f357b16202e7cf9d3883ff9f4dd21bc7
-  Stored in directory: /tmp/pip-ephem-wheel-cache-v1dd9ef4/wheels/d5/8e/29/bf8b25c94f26842450732d2435997a02eed76cd13c7ad034ad
+  Created wheel for eca-reference: filename=eca_reference-2.0.0-py3-none-any.whl size=32803 sha256=6b440266960829992afa15578acb25e5117ae55bb4c5b1a2b644ba4811daee42
+  Stored in directory: /tmp/pip-ephem-wheel-cache-gwexbjk1/wheels/b1/1e/ed/a1e3e1350e4cb04a4b69edbbf1935415feeb81cd0bce522ed9
 Successfully built eca-reference
 PASS: wheel built: eca_reference-2.0.0-py3-none-any.whl

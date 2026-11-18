@@ -1,0 +1,672 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:eca:etc:0.3-proposed:schema",
+  "title": "ECA Cross-Layer Traceability Contract (ETC) — 0.3-proposed",
+  "description": "Structural schema only. Semantic validity, relation verification, authority, policy, trust and target outcomes require separately declared checks.",
+  "type": "object",
+  "required": [
+    "contract_id",
+    "profile_version",
+    "action",
+    "risk_profile",
+    "nodes",
+    "relations",
+    "obligations",
+    "closure_policy"
+  ],
+  "properties": {
+    "contract_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_version": {
+      "const": "0.3-proposed"
+    },
+    "action": {
+      "type": "object",
+      "required": [
+        "action_id",
+        "request",
+        "request_digest",
+        "request_binding_profile",
+        "action_class",
+        "target",
+        "validity"
+      ],
+      "properties": {
+        "action_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "request": {
+          "type": "object",
+          "required": [
+            "qid",
+            "principal_ref",
+            "task",
+            "action",
+            "target",
+            "arguments",
+            "purpose",
+            "context",
+            "created_at",
+            "expires_at",
+            "artifact_ref",
+            "policy_ref",
+            "mission_ref",
+            "delegation_ref",
+            "nonce"
+          ],
+          "properties": {
+            "qid": {
+              "type": "string",
+              "minLength": 1
+            },
+            "principal_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "task": {
+              "type": "string",
+              "minLength": 1
+            },
+            "action": {
+              "type": "string",
+              "minLength": 1
+            },
+            "target": {
+              "type": "string",
+              "minLength": 1
+            },
+            "arguments": {
+              "type": "object"
+            },
+            "purpose": {
+              "type": "string",
+              "minLength": 1
+            },
+            "context": {
+              "type": "object"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "expires_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "artifact_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "policy_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "mission_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "delegation_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "nonce": {
+              "type": "string",
+              "minLength": 16
+            },
+            "canonicalization_profile": {
+              "const": "eca-canonical-json-v1"
+            }
+          },
+          "additionalProperties": false
+        },
+        "request_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "request_binding_profile": {
+          "const": "eca-canonical-json-v1"
+        },
+        "action_class": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validity": {
+          "type": "object",
+          "required": [
+            "not_before",
+            "expires_at"
+          ],
+          "properties": {
+            "not_before": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "expires_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "risk_profile": {
+      "type": "object",
+      "required": [
+        "id",
+        "version",
+        "level",
+        "action_class",
+        "pre_action_relation_types",
+        "post_action_relation_types",
+        "accountability_relation_types",
+        "critical_relation_types",
+        "freshness_seconds_by_relation_type",
+        "native_authorization_max_age_seconds",
+        "enforcement_assessment_max_age_seconds"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "level": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ]
+        },
+        "action_class": {
+          "type": "string",
+          "minLength": 1
+        },
+        "jurisdictional_context": {
+          "type": "string"
+        },
+        "pre_action_relation_types": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "governed_by_mission",
+              "delegated_through",
+              "evaluated_under_policy",
+              "supported_by_evidence",
+              "implemented_by_artifact",
+              "built_as_release",
+              "authorized_by_native_decision",
+              "enforced_at_boundary",
+              "observed_as_target_effect",
+              "challenged_through_review",
+              "remediated_by_action",
+              "supersedes_version"
+            ]
+          }
+        },
+        "post_action_relation_types": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "governed_by_mission",
+              "delegated_through",
+              "evaluated_under_policy",
+              "supported_by_evidence",
+              "implemented_by_artifact",
+              "built_as_release",
+              "authorized_by_native_decision",
+              "enforced_at_boundary",
+              "observed_as_target_effect",
+              "challenged_through_review",
+              "remediated_by_action",
+              "supersedes_version"
+            ]
+          }
+        },
+        "accountability_relation_types": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "governed_by_mission",
+              "delegated_through",
+              "evaluated_under_policy",
+              "supported_by_evidence",
+              "implemented_by_artifact",
+              "built_as_release",
+              "authorized_by_native_decision",
+              "enforced_at_boundary",
+              "observed_as_target_effect",
+              "challenged_through_review",
+              "remediated_by_action",
+              "supersedes_version"
+            ]
+          }
+        },
+        "critical_relation_types": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "governed_by_mission",
+              "delegated_through",
+              "evaluated_under_policy",
+              "supported_by_evidence",
+              "implemented_by_artifact",
+              "built_as_release",
+              "authorized_by_native_decision",
+              "enforced_at_boundary",
+              "observed_as_target_effect",
+              "challenged_through_review",
+              "remediated_by_action",
+              "supersedes_version"
+            ]
+          }
+        },
+        "freshness_seconds_by_relation_type": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "independence_policy_ref": {
+          "type": "string"
+        },
+        "obligation_policy_ref": {
+          "type": "string"
+        },
+        "native_authorization_max_age_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 86400
+        },
+        "enforcement_assessment_max_age_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 86400
+        }
+      },
+      "additionalProperties": true
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "native_ref",
+          "version",
+          "owner_ref",
+          "privacy_class",
+          "retention_rule_ref"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "action",
+              "mission",
+              "delegation",
+              "policy",
+              "evidence",
+              "artifact",
+              "release",
+              "native_authorization",
+              "enforcement_point",
+              "target_effect",
+              "review_process",
+              "remediation_action",
+              "version"
+            ]
+          },
+          "native_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "privacy_class": {
+            "type": "string",
+            "minLength": 1
+          },
+          "retention_rule_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "attributes": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "source",
+          "target",
+          "schema_version",
+          "asserting_issuer",
+          "asserted_at",
+          "observed_at",
+          "validity",
+          "native_evidence_ref",
+          "verification_method",
+          "verifier_ref",
+          "trust_profile_ref",
+          "limitations",
+          "status",
+          "owner_ref",
+          "privacy_class",
+          "retention_rule_ref",
+          "change_dependencies"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "governed_by_mission",
+              "delegated_through",
+              "evaluated_under_policy",
+              "supported_by_evidence",
+              "implemented_by_artifact",
+              "built_as_release",
+              "authorized_by_native_decision",
+              "enforced_at_boundary",
+              "observed_as_target_effect",
+              "challenged_through_review",
+              "remediated_by_action",
+              "supersedes_version"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "schema_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "asserting_issuer": {
+            "type": "string",
+            "minLength": 1
+          },
+          "asserted_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "validity": {
+            "type": "object",
+            "required": [
+              "checked_at"
+            ],
+            "properties": {
+              "checked_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "valid_from": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "valid_until": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "additionalProperties": true
+          },
+          "native_evidence_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verification_method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verifier_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "trust_profile_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "enum": [
+              "VERIFIED",
+              "PRESENT_UNVERIFIED",
+              "STALE",
+              "UNAVAILABLE",
+              "DISPUTED",
+              "CONTRADICTED",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "owner_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "privacy_class": {
+            "type": "string",
+            "minLength": 1
+          },
+          "retention_rule_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "change_dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "not_applicable_exception": {
+            "type": "object",
+            "required": [
+              "reason",
+              "approved_by",
+              "approved_at",
+              "valid_until"
+            ],
+            "properties": {
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approved_by": {
+                "type": "string",
+                "minLength": 1
+              },
+              "approved_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "valid_until": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "NOT_APPLICABLE"
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            "then": {
+              "required": [
+                "not_applicable_exception"
+              ]
+            }
+          }
+        ],
+        "additionalProperties": true
+      }
+    },
+    "obligations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "phase",
+          "owner_ref",
+          "status",
+          "due_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "phase": {
+            "enum": [
+              "PRE",
+              "CONCURRENT",
+              "POST",
+              "ACCOUNTABILITY"
+            ]
+          },
+          "owner_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "PENDING",
+              "DISCHARGED",
+              "OVERDUE",
+              "REGISTERED"
+            ]
+          },
+          "due_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "discharge_evidence_ref": {
+            "type": "string"
+          },
+          "escalation_rule_ref": {
+            "type": "string"
+          },
+          "runtime_guard_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "phase": {
+                  "const": "CONCURRENT"
+                }
+              },
+              "required": [
+                "phase"
+              ]
+            },
+            "then": {
+              "required": [
+                "runtime_guard_ref"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "closure_policy": {
+      "type": "object",
+      "required": [
+        "critical_relations_are_hard_gates",
+        "coverage_is_diagnostic_only",
+        "allow_not_applicable",
+        "post_action_requirements_ref",
+        "accountability_requirements_ref",
+        "challenge_route_ref"
+      ],
+      "properties": {
+        "critical_relations_are_hard_gates": {
+          "const": true
+        },
+        "coverage_is_diagnostic_only": {
+          "const": true
+        },
+        "allow_not_applicable": {
+          "type": "boolean"
+        },
+        "post_action_requirements_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accountability_requirements_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "challenge_route_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

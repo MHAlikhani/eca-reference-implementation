@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import json
+import re
+from datetime import datetime
 from importlib.resources import files
 from typing import Any
 
@@ -21,7 +23,28 @@ def validate_schema_definition() -> None:
 
 def validate_contract_structure(contract: dict[str, Any]) -> None:
     schema = schema_document()
-    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+    format_checker = FormatChecker()
+
+    # jsonschema delegates RFC 3339 validation to optional dependencies in
+    # some environments. Register a deterministic checker so naive timestamps
+    # are rejected identically across the supported Python matrix.
+    @format_checker.checks("date-time")
+    def _is_timezone_aware_rfc3339(value: Any) -> bool:
+        if not isinstance(value, str):
+            return True  # The schema's "type" constraint reports non-strings.
+        if not re.fullmatch(
+            r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}"
+            r"(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})",
+            value,
+        ):
+            return False
+        try:
+            parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        except ValueError:
+            return False
+        return parsed.tzinfo is not None and parsed.utcoffset() is not None
+
+    validator = Draft202012Validator(schema, format_checker=format_checker)
     errors = sorted(validator.iter_errors(contract), key=lambda e: (list(e.absolute_path), e.message))
     if errors:
         details = "; ".join(
